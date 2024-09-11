@@ -5,17 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Meal Plan</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
         }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
+            padding: 12px 15px;
             text-align: left;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        th {
+            background-color: #009879;
+            color: #ffffff;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        td:first-of-type {
+            font-weight: bold;
+            color: #009879;
+        }
+
+        td:last-of-type {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+            thead {
+                display: none;
+            }
+            tr {
+                display: block;
+                margin-bottom: 10px;
+            }
+            td {
+                display: block;
+                text-align: right;
+                font-size: 14px;
+                border-bottom: 1px solid #ddd;
+                position: relative;
+                padding-left: 50%;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+            table {
+                border-color: #333;
+                background-color: #222;
+            }
+            th {
+                background-color: #333;
+                color: #fff;
+            }
+            td {
+                color: #bbb;
+            }
+            tr:nth-of-type(even) {
+                background-color: #333;
+            }
+            tr:hover {
+                background-color: #444;
+            }
         }
     </style>
 </head>
@@ -24,86 +132,90 @@
 <h2>Weekly Meal Plan</h2>
 
 <table>
-  <tr>
-    <th>Day</th>
-    <th>Meal</th>
-    <th>Breakfast</th>
-    <th>Mid-Morning Snack</th>
-    <th>Lunch</th>
-    <th>Afternoon Snack</th>
-    <th>Dinner</th>
-    <th>Late-Night Snack (Optional)</th>
-  </tr>
-  <tr>
-    <td>Monday</td>
-    <td>Meals</td>
-    <td>Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
-    <td>Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
-    <td>Grilled chicken, Brown rice, Mixed salad, Plain yogurt</td>
-    <td>Carrot/Cucumber sticks with hummus</td>
-    <td>Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
-    <td>Warm low-fat milk, Papaya/Pear slices</td>
-  </tr>
-  <tr>
-    <td>Tuesday</td>
-    <td>Meals</td>
-    <td>Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
-    <td>Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
-    <td>Grilled fish (Salmon/Mackerel), Brown rice, Mixed salad, Plain yogurt</td>
-    <td>Carrot/Cucumber sticks with hummus</td>
-    <td>Grilled vegetables, Lean protein (Tofu/Chicken), Barley</td>
-    <td>Warm low-fat milk, Papaya/Pear slices</td>
-  </tr>
-  <tr>
-    <td>Wednesday</td>
-    <td>Meals</td>
-    <td>Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
-    <td>Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
-    <td>Grilled chicken, Quinoa, Mixed salad, Plain yogurt</td>
-    <td>Carrot/Cucumber sticks with hummus</td>
-    <td>Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
-    <td>Warm low-fat milk, Papaya/Pear slices</td>
-  </tr>
-  <tr>
-    <td>Thursday</td>
-    <td>Meals</td>
-    <td>Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
-    <td>Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
-    <td>Grilled fish (Salmon/Mackerel), Brown rice, Mixed salad, Plain yogurt</td>
-    <td>Carrot/Cucumber sticks with hummus</td>
-    <td>Grilled vegetables, Lean protein (Tofu/Chicken), Barley</td>
-    <td>Warm low-fat milk, Papaya/Pear slices</td>
-  </tr>
-  <tr>
-    <td>Friday</td>
-    <td>Meals</td>
-    <td>Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
-    <td>Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
-    <td>Grilled chicken, Brown rice, Mixed salad, Plain yogurt</td>
-    <td>Carrot/Cucumber sticks with hummus</td>
-    <td>Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
-    <td>Warm low-fat milk, Papaya/Pear slices</td>
-  </tr>
-  <tr>
-    <td>Saturday</td>
-    <td>Meals</td>
-    <td>Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
-    <td>Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
-    <td>Grilled fish (Salmon/Mackerel), Quinoa, Mixed salad, Plain yogurt</td>
-    <td>Carrot/Cucumber sticks with hummus</td>
-    <td>Grilled vegetables, Lean protein (Tofu/Chicken), Barley</td>
-    <td>Warm low-fat milk, Papaya/Pear slices</td>
-  </tr>
-  <tr>
-    <td>Sunday</td>
-    <td>Meals</td>
-    <td>Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
-    <td>Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
-    <td>Grilled chicken, Brown rice, Mixed salad, Plain yogurt</td>
-    <td>Carrot/Cucumber sticks with hummus</td>
-    <td>Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
-    <td>Warm low-fat milk, Papaya/Pear slices</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Meal</th>
+      <th>Breakfast</th>
+      <th>Mid-Morning Snack</th>
+      <th>Lunch</th>
+      <th>Afternoon Snack</th>
+      <th>Dinner</th>
+      <th>Late-Night Snack (Optional)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Day">Monday</td>
+      <td data-label="Meal">Meals</td>
+      <td data-label="Breakfast">Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
+      <td data-label="Mid-Morning Snack">Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
+      <td data-label="Lunch">Grilled chicken, Brown rice, Mixed salad, Plain yogurt</td>
+      <td data-label="Afternoon Snack">Carrot/Cucumber sticks with hummus</td>
+      <td data-label="Dinner">Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
+      <td data-label="Late-Night Snack">Warm low-fat milk, Papaya/Pear slices</td>
+    </tr>
+    <tr>
+      <td data-label="Day">Tuesday</td>
+      <td data-label="Meal">Meals</td>
+      <td data-label="Breakfast">Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
+      <td data-label="Mid-Morning Snack">Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
+      <td data-label="Lunch">Grilled fish (Salmon/Mackerel), Brown rice, Mixed salad, Plain yogurt</td>
+      <td data-label="Afternoon Snack">Carrot/Cucumber sticks with hummus</td>
+      <td data-label="Dinner">Grilled vegetables, Lean protein (Tofu/Chicken), Barley</td>
+      <td data-label="Late-Night Snack">Warm low-fat milk, Papaya/Pear slices</td>
+    </tr>
+    <tr>
+      <td data-label="Day">Wednesday</td>
+      <td data-label="Meal">Meals</td>
+      <td data-label="Breakfast">Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
+      <td data-label="Mid-Morning Snack">Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
+      <td data-label="Lunch">Grilled chicken, Quinoa, Mixed salad, Plain yogurt</td>
+      <td data-label="Afternoon Snack">Carrot/Cucumber sticks with hummus</td>
+      <td data-label="Dinner">Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
+      <td data-label="Late-Night Snack">Warm low-fat milk, Papaya/Pear slices</td>
+    </tr>
+    <tr>
+      <td data-label="Day">Thursday</td>
+      <td data-label="Meal">Meals</td>
+      <td data-label="Breakfast">Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
+      <td data-label="Mid-Morning Snack">Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
+      <td data-label="Lunch">Grilled fish (Salmon/Mackerel), Brown rice, Mixed salad, Plain yogurt</td>
+      <td data-label="Afternoon Snack">Carrot/Cucumber sticks with hummus</td>
+      <td data-label="Dinner">Grilled vegetables, Lean protein (Tofu/Chicken), Barley</td>
+      <td data-label="Late-Night Snack">Warm low-fat milk, Papaya/Pear slices</td>
+    </tr>
+    <tr>
+      <td data-label="Day">Friday</td>
+      <td data-label="Meal">Meals</td>
+      <td data-label="Breakfast">Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
+      <td data-label="Mid-Morning Snack">Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
+      <td data-label="Lunch">Grilled chicken, Brown rice, Mixed salad, Plain yogurt</td>
+      <td data-label="Afternoon Snack">Carrot/Cucumber sticks with hummus</td>
+      <td data-label="Dinner">Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
+      <td data-label="Late-Night Snack">Warm low-fat milk, Papaya/Pear slices</td>
+    </tr>
+    <tr>
+      <td data-label="Day">Saturday</td>
+      <td data-label="Meal">Meals</td>
+      <td data-label="Breakfast">Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
+      <td data-label="Mid-Morning Snack">Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
+      <td data-label="Lunch">Grilled fish (Salmon/Mackerel), Quinoa, Mixed salad, Plain yogurt</td>
+      <td data-label="Afternoon Snack">Carrot/Cucumber sticks with hummus</td>
+      <td data-label="Dinner">Grilled vegetables, Lean protein (Tofu/Chicken), Barley</td>
+      <td data-label="Late-Night Snack">Warm low-fat milk, Papaya/Pear slices</td>
+    </tr>
+    <tr>
+      <td data-label="Day">Sunday</td>
+      <td data-label="Meal">Meals</td>
+      <td data-label="Breakfast">Oatmeal with fruits & nuts, Boiled eggs, Green Tea</td>
+      <td data-label="Mid-Morning Snack">Fresh fruit (Apple/Pear/Cherries), Coconut Water (optional)</td>
+      <td data-label="Lunch">Grilled chicken, Brown rice, Mixed salad, Plain yogurt</td>
+      <td data-label="Afternoon Snack">Carrot/Cucumber sticks with hummus</td>
+      <td data-label="Dinner">Grilled vegetables, Lean protein (Tofu/Chicken), Quinoa</td>
+      <td data-label="Late-Night Snack">Warm low-fat milk, Papaya/Pear slices</td>
+    </tr>
+  </tbody>
 </table>
 
 </body>
